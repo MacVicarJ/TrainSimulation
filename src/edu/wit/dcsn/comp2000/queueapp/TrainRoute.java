@@ -50,8 +50,8 @@ public class TrainRoute {
 				while(!passengers.isEmpty()){
 					Passenger passenger = passengers.dequeue();
 					//if passenger at the station, add them to the train
-					if (passenger.getStartStationID() == station.getStationID()){
-						writer.println("Passenger " + passenger.getName() + " boarded train");
+					if (passenger.getStartStationID() == station.getID()){
+						writer.println(passenger.toString() + " boarded train");
 						train.addPassengerToTrain(passenger);
 					} else {
 						returningCount++;
@@ -176,7 +176,7 @@ public class TrainRoute {
 		for (Tracks track : tracks) {
 			if(track.getStatus() == "Station") {
 				Station station = track.getStation();
-				if(station.getStationID() == stationID){
+				if(station.getID() == stationID){
 					station.addPassengerToStation(passenger);
 					track.setStation(station);
 				}

@@ -1,3 +1,5 @@
 **/.idea/**
 TrainSimulation.iml
 .project
+/bin/
+.classpath
