@@ -56,7 +56,7 @@ public class Logger{
 			System.exit(1);
 		}
 		java.io.PrintWriter output = new java.io.PrintWriter(file);
-		output.print("Train "+ train.ID);
+		output.print("Train "+ train.getID);
 		output.println(" Departs from Station "+station.getID());
 	}
 	
