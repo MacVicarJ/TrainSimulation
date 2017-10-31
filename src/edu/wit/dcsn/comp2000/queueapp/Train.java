@@ -70,7 +70,7 @@ public class Train extends TrainRoute {
         return speed;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 }

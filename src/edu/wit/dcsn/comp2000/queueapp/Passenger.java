@@ -5,8 +5,19 @@ public class Passenger {
 	static int currentID;
     int ID, startStationID;
 
-	public Passenger() {
+	/**
+	 * True = Inbound
+	 * False = Outbound
+	 */
+	private boolean direction;
+
+	public Passenger(boolean dir) {
+		this.direction = dir;
 		ID = ++currentID;
+	}
+
+	public boolean getDirection() {
+		return this.direction;
 	}
 
 	public int getStartStationID() {

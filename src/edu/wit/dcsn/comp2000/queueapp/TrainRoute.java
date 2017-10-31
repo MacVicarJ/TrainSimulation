@@ -11,7 +11,6 @@ public class TrainRoute {
 	private int stationCount;
 	private ArrayList<Tracks> tracks;
 
-
 	public TrainRoute(ArrayList<Station> stations, ArrayList<Train> trains){
 		this.stations = new ArrayList<Station>();
 		this.stations = stations;
@@ -25,10 +24,10 @@ public class TrainRoute {
 			//check if train is boarding
 			if (track.getStatus().equalsIgnoreCase("boarding")) {
 				//current position of the train
-				writer.println("Train is at station: " + track.getStation().getStationName());
+				writer.println("Train is at station: " + track.getStation().toString());
 				writer.println("Doors opening... Passengers getting off...");
 				//passenger ending stationID
-				int endStationID = track.getStation().getStationID();
+				int endStationID = track.getStation().getID();
 				//take off passenger from the train
 				track.getTrain().disembarkPassengers(endStationID, writer);
 			}

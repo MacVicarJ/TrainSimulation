@@ -7,31 +7,31 @@ public class Station {
 
 	static int currentID;
 	int ID, passengerCount;
-	ArrayQueue<Passenger> stationPassengers, InboundQueue, OutboundQueue;
+	ArrayQueue<Passenger> InboundPassengers, OutboundPassengers;
+
 
 	public Station() {
 		ID = ++currentID;
 	}
 
-	public ArrayQueue<Passenger> getPassengers() {
-		return stationPassengers;
+	public ArrayQueue<Passenger> getInboundPassengers() {
+		return InboundPassengers;
+	}
+
+	public ArrayQueue<Passenger> getOutboundPassengers() {
+		return OutboundPassengers;
 	}
 
 	public void setPassengerCount(int returningCount) {
 		passengerCount = returningCount;
 	}
 
-	public int getDistanceToNext() {
-		// TODO Auto-generated method stub
-		throw new NotImplementedException();
-	}
-
 	public void addPassengerToStation(Passenger passenger) {
-		stationPassengers.enqueue( passenger );
-	}
-
-	public void setStationPassengers( ArrayQueue<Passenger> stationPassengers ) {
-		this.stationPassengers = stationPassengers;
+		if (passenger.getDirection()) {
+            InboundPassengers.enqueue( passenger );
+        } else {
+		    OutboundPassengers.enqueue( passenger );
+        }
 	}
 
 	public int getID() {
@@ -42,12 +42,5 @@ public class Station {
 	public String toString() {
 		return "Station " + getID();
 	}
-
-
-	//two queues of inbound and outbound lines
-
-
-
-
 
 }
